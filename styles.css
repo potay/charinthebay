@@ -1,8 +1,7 @@
 body {
   background: rgb(161,174,209);
-  background: linear-gradient(310deg, rgba(161,174,209,1) 0%, rgba(217,221,232,1) 50%);
-  /* background: #4c5c68;
-  background: linear-gradient(310deg, #4c5c68 0%, #46494c 50%); */
+  /* background: linear-gradient(310deg, rgba(161,174,209,1) 0%, rgba(217,221,232,1) 50%); */
+  background: linear-gradient(310deg, rgb(140 150 179) 0%, rgb(217 221 232) 50%)
 }
 
 #main-container {
@@ -20,6 +19,13 @@ body {
 #main-container #countdown {
   font-family: 'Redressed', cursive;
   font-size: 42px;
+  flex: 0 1;
+}
+
+#main-container #tagline {
+  font-family: 'Redressed', cursive;
+  font-size: 24px;
+  color: #1985A1;
   flex: 0 1;
 }
 
@@ -43,6 +49,20 @@ body {
   min-width: 300px;
 }
 
+#main-container #graphic img.char-arrived {
+  display: none;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 6px solid #f3d9dc;
+}
+
 #main-container #graphic .track-container {
   position: absolute;
   top: 24px;
@@ -55,7 +75,8 @@ body {
 }
 
 #main-container #graphic .char,
-#main-container #graphic .char-border {
+#main-container #graphic .char-border,
+#main-container #graphic .plane {
   motion-path: path('M 0 200 Q 130 -30 400 300');
   offset-path: path('M 0 200 Q 130 -30 400 300');
   offset-rotate: 0deg;
