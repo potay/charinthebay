@@ -1,0 +1,69 @@
+body {
+  background: rgb(161,174,209);
+  background: linear-gradient(310deg, rgba(161,174,209,1) 0%, rgba(217,221,232,1) 50%);
+  /* background: #4c5c68;
+  background: linear-gradient(310deg, #4c5c68 0%, #46494c 50%); */
+}
+
+#main-container {
+  color: #dd5e98;
+  font-family: 'Roboto', sans-serif;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-container #countdown {
+  font-family: 'Redressed', cursive;
+  font-size: 42px;
+  flex: 0 1;
+}
+
+#main-container #graphic {
+  width: 100%;
+
+  flex: 0 1;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 142px;
+}
+
+#main-container #graphic img.kl,
+#main-container #graphic img.sf {
+  max-height: 400px;
+  max-width: 400px;
+  min-width: 300px;
+}
+
+#main-container #graphic .track-container {
+  position: absolute;
+  top: 24px;
+  z-index: -1;
+}
+
+#main-container #graphic .track {
+  stroke: #dd5e98;
+  stroke-width: 2px;
+}
+
+#main-container #graphic .char,
+#main-container #graphic .char-border {
+  motion-path: path('M 0 200 Q 130 -30 400 300');
+  offset-path: path('M 0 200 Q 130 -30 400 300');
+  offset-rotate: 0deg;
+  animation: move 3s linear infinite;
+}
+
+#main-container #graphic .char-border {
+  stroke: #F3D9DC;
+  stroke-width: 8px;
+  filter: url(#shadow);
+}
