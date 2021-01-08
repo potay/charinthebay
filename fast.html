@@ -79,27 +79,12 @@
     <script src="./js/jquery.countdown.min.js"></script>
     <script src="./main.js"></script>
     <script type="text/javascript">
-      const start_date = DateTime.fromObject({
-        year: 2021,
-        month: 1,
-        day: 4,
-        zone: 'Asia/Singapore',
+      const start_date = DateTime.local();
+      const fly_date = start_date.plus({
+        seconds: 5
       });
-      const fly_date = DateTime.fromObject({
-        year: 2021,
-        month: 1,
-        day: 17,
-        hour: 8,
-        minute: 10,
-        zone: 'Asia/Singapore',
-      });
-      const land_date = DateTime.fromObject({
-        year: 2021,
-        month: 1,
-        day: 17,
-        hour: 9,
-        minute: 10,
-        zone: 'America/Los_Angeles',
+      const land_date = fly_date.plus({
+        seconds: 5
       });
       init_countdown({
         start: start_date,
