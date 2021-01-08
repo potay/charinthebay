@@ -111,7 +111,20 @@ function flying($countdown) {
     .on('finish.countdown', (event) => finish_countdown($countdown));
 }
 
+function register_service_worker() {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker
+      .register("./service_worker.js")
+      .then(res => console.log("service worker registered"))
+      .catch(err => console.log("service worker not registered", err))
+  })
+}
+
 function main() {
+  if ("serviceWorker" in navigator) {
+    register_service_worker();
+  }
+
   const $countdown = $(COUNTDOWN_CONTAINER);
   const now = DateTime.local();
   if (now >= LAND_DATE) {
