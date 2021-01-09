@@ -1,6 +1,7 @@
 const DateTime = luxon.DateTime;
 
-const FLY_PORTION = 0.45;
+const FLY_PORTION = $(window)
+  .width() < 768 ? 0.3 : 0.45;
 
 const COUNTDOWN_CONTAINER = '#countdown';
 const COUNTDOWN_FORMAT = '%-D day%!D %-H hour%!H %-M minute%!M %-S second%!S';
@@ -13,6 +14,8 @@ const MESSAGES = {
 }
 
 const TRACK_CONTAINER = '#main-container #graphic .track-container';
+const TRACK_CONTAINER_MOBILE = '#main-container #graphic .track-container-mobile';
+const GRAPHIC = '#main-container #graphic';
 const CHAR_PIC = '#main-container #graphic .char';
 const CHAR_BORDER = '#main-container #graphic .char-border';
 const PLANE_PIC = '#main-container #graphic .plane';
@@ -71,12 +74,16 @@ function update_countdown(dates, $countdown, event) {
 function finish_countdown(dates, $countdown) {
   $(TRACK_CONTAINER)
     .hide();
+  $(TRACK_CONTAINER_MOBILE)
+    .hide();
   $(KL_PIC)
     .hide();
   $(TAGLINE_CONTAINER)
     .hide();
   $(CHAR_ARRIVED_PIC)
     .show();
+  $(GRAPHIC)
+    .addClass('arrived');
   set_message(MESSAGES.arrived);
   $countdown.text(MESSAGES.arrived);
 }
